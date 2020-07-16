@@ -2,7 +2,7 @@
 
 PyTorch implementation of our ECCV2020 paper:
 
-[Patch-match and Planar-regularization for Unsupervised Indoor Depth Estimation](https://svip-lab.github.io/)
+[P<sup>2</sup>Net: Patch-match and Planar-regularization for Unsupervised Indoor Depth Estimation](https://arxiv.org/pdf/2007.07696.pdf)
 
 Zehao Yu\*,
 Lei Jin\*,
@@ -15,7 +15,10 @@ Lei Jin\*,
 ## Getting Started
 
 ### Installation
-
+```bash
+pip install -r requirements.txt
+conda install pytorch torchvision cudatoolkit=10.2 -c pytorch
+```
 
 ### Download pretrained model
 Please download pretrained model from [Onedrive](https://onedrive.live.com/?authkey=%21ANXK7icE%2D33VPg0&id=C43E510B25EDDE99%21106&cid=C43E510B25EDDE99) and extract:
@@ -117,7 +120,7 @@ Please cite our paper for any purpose of usage.
 ```
 @inproceedings{IndoorSfMLearner,
   author    = {Zehao Yu and Lei Jin and Shenghua Gao},
-  title     = {Patch-match and Planar-regularization for Unsupervised Indoor Depth Estimation},
+  title     = {P$^{2}$Net: Patch-match and Planar-regularization for Unsupervised Indoor Depth Estimation},
   booktitle = {ECCV},
   year      = {2020}
 }
