@@ -28,6 +28,7 @@ Pytorch version >= 0.4.1 would work well.
 Please download pretrained model from [Onedrive](https://onedrive.live.com/?authkey=%21ANXK7icE%2D33VPg0&id=C43E510B25EDDE99%21106&cid=C43E510B25EDDE99) and extract:
 ```bash
 tar -xzvf ckpts.tar.gz 
+rm ckpts.tar.gz
 ```
 
 ### Prediction on sigle image                                                                                  
@@ -38,12 +39,19 @@ python inference_single_image.py --image_path=/path/to/image
 By default, the script saves the predicted depth to the same folder
 
 ## Evaluation                                                                                                     
-Download testing data from [Onedrive](https://onedrive.live.com/?authkey=%21ANXK7icE%2D33VPg0&id=C43E510B25EDDE99%21106&cid=C43E510B25EDDE99) and extract to ./data.
+Download testing data from [Onedrive](https://onedrive.live.com/?authkey=%21ANXK7icE%2D33VPg0&id=C43E510B25EDDE99%21106&cid=C43E510B25EDDE99) and put to ./data.
+```bash
+cd data
+tar -xzvf nyu_test.tar.gz 
+tar -xzvf scannet_test.tar.gz
+tar -xzvf scannet_pose.tar.gz
+cd ../
+```
 
 ### NYUv2 Dpeth
 ```bash
 CUDA_VISIBLE_DEVICES=1 python evaluation/nyuv2_eval_depth.py \
-    --data_path PATH_NYU_TEST \
+    --data_path ./data \
     --load_weights_folder ckpts/weights_5f \
     --post_process  
 ```
@@ -51,7 +59,7 @@ CUDA_VISIBLE_DEVICES=1 python evaluation/nyuv2_eval_depth.py \
 ### NYUv2 normal
 ```base
 CUDA_VISIBLE_DEVICES=1 python evaluation/nyuv2_eval_norm.py \
-    --data_path PATH_NYU_TEST \
+    --data_path ./data \
     --load_weights_folder ckpts/weights_5f \
     # --post_process
 ```
@@ -59,16 +67,15 @@ CUDA_VISIBLE_DEVICES=1 python evaluation/nyuv2_eval_norm.py \
 ### ScanNet Depth
 ```base
 CUDA_VISIBLE_DEVICES=1 python evaluation/scannet_eval_depth.py \                                               
-    --data_path PATH_SCANNET_TEST \
+    --data_path ./data/scannet_test \
     --load_weights_folder ckpts/weights_5f \
     --post_process
-
 ```
 
 ### ScanNet Pose
 ```base
-UDA_VISIBLE_DEVICES=1 python evaluation/scannet_eval_pose.py \                                                
-    --data_path PATH_SCANNET_POSE \
+UDA_VISIBLE_DEVICES=1 python evaluation/scannet_eval_pose.py \
+    --data_path ./data/scannet_pose \
     --load_weights_folder ckpts/weights_5f \
     --frame_ids 0 1
 ```
@@ -88,7 +95,7 @@ Run the following command to train our network:
 CUDA_VISIBLE_DEVICES=1 python train_geo.py \                                                                   
     --model_name 3frames \
     --data_path DATA_PATH \
-    --val_path PATH_NYU_TEST \
+    --val_path ./data \
     --segment_path ./data/segments \
     --log_dir ./logs \
     --lambda_planar_reg 0.05 \
@@ -103,7 +110,7 @@ Using the pretrained model from 3-frames setting gives better results.
 CUDA_VISIBLE_DEVICES=1 python train_geo.py \                                                                   
     --model_name 5frames \
     --data_path DATA_PATH \
-    --val_path PATH_NYU_TEST \
+    --val_path ./data \
     --segment_path ./data/segments \
     --log_dir ./logs \
     --lambda_planar_reg 0.05 \
