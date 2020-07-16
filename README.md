@@ -17,8 +17,12 @@ Lei Jin\*,
 ### Installation
 ```bash
 pip install -r requirements.txt
+```
+Then install pytorch with
+```bash
 conda install pytorch torchvision cudatoolkit=10.2 -c pytorch
 ```
+Pytorch version >= 0.4.1 would work well.
 
 ### Download pretrained model
 Please download pretrained model from [Onedrive](https://onedrive.live.com/?authkey=%21ANXK7icE%2D33VPg0&id=C43E510B25EDDE99%21106&cid=C43E510B25EDDE99) and extract:
