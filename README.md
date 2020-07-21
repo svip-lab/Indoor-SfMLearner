@@ -2,7 +2,7 @@
 
 PyTorch implementation of our ECCV2020 paper:
 
-[P<sup>2</sup>Net: Patch-match and Planar-regularization for Unsupervised Indoor Depth Estimation](https://arxiv.org/pdf/2007.07696.pdf)
+[P<sup>2</sup>Net: Patch-match and Plane-regularization for Unsupervised Indoor Depth Estimation](https://arxiv.org/pdf/2007.07696.pdf)
 
 Zehao Yu\*,
 Lei Jin\*,
@@ -131,7 +131,7 @@ Please cite our paper for any purpose of usage.
 ```
 @inproceedings{IndoorSfMLearner,
   author    = {Zehao Yu and Lei Jin and Shenghua Gao},
-  title     = {P$^{2}$Net: Patch-match and Planar-regularization for Unsupervised Indoor Depth Estimation},
+  title     = {P$^{2}$Net: Patch-match and Plane-regularization for Unsupervised Indoor Depth Estimation},
   booktitle = {ECCV},
   year      = {2020}
 }
