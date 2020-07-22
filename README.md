@@ -31,7 +31,7 @@ tar -xzvf ckpts.tar.gz
 rm ckpts.tar.gz
 ```
 
-### Prediction on sigle image                                                                                  
+### Prediction on single image                                                                                  
 Run the following command to predict on a single image:
 ```bash
 python inference_single_image.py --image_path=/path/to/image
