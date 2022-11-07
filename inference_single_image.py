@@ -77,7 +77,7 @@ def inference(args):
         input_image = pil.open(image_path).convert('RGB')
         extension = image_path.split('.')[-1]
         original_width, original_height = input_image.size
-        input_image = input_image.resize((thisH, thisW), pil.LANCZOS)
+        input_image = input_image.resize((thisW, thisH), pil.LANCZOS)
         input_image = transforms.ToTensor()(input_image).unsqueeze(0)
 
         # PREDICTION
